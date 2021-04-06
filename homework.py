@@ -16,8 +16,8 @@ print(e)
  #4
 m = 3
 l = [1, 3, 4, 7, 9]
-l1 = [x for x in l if x%m == 1]
-print(l1)
+D1 = {k:k%m for k in l}
+print(D1.keys())
 
 
 #5
@@ -26,16 +26,17 @@ res = [x+y for x, y in dictionary.items() if type(x) in [int, float] and type(y)
 print(res)
 
 #6
-L = [3, 2, 4, 4, -1]
+L = [3, 2, 4, 5, -1]
 L.sort()
-L1 = [(L[i],L[j])for i in range(len(L)-1) for j in range(i+1, len(L))]
+L1 = [(L[i],L[j]) for i in range(len(L)-1) for j in range(i+1, len(L)) if L[i] < L[j]]
 print(L1)
-#баг если одинаковые 
+
+
 #7
 l = ['a', 1, -2, 1.2]
 value = [i for i in l if l.index(i)%2!=0]
 keys = [i for i in l if l.index(i)%2==0]
-d = dict.fromkeys(keys, value)
+d = {k: v for k, v in zip(keys, value)}
 print(d)
 
 
